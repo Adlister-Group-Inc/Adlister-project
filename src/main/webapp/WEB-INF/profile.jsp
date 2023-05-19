@@ -14,11 +14,14 @@
     </div>
     <div>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
+            <div class="col-md-6 ad-card" data-ad-id="${ad.id}">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
             </div>
         </c:forEach>
     </div>
+<script src="/js/profile.js"></script>
 </body>
 </html>
