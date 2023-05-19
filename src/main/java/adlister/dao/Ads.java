@@ -16,4 +16,6 @@ public interface Ads {
     List<Ad> findByUserId(Long userId);
 
     Ad updateAd(int adId, String newTitle, String newDescription) throws SQLException;
+    Ad searchAdsById(Long searchId);
+
 }

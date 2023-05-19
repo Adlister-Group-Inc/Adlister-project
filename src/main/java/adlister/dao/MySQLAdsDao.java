@@ -1,6 +1,7 @@
 package adlister.dao;
 
 import adlister.models.Ad;
+import java.sql.DriverManager;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -128,17 +129,16 @@ public class MySQLAdsDao implements Ads {
     }
 
     //-------------------------------------------------------------------------------
-    //UNTESTED
     @Override
     public List<Ad> searchAds(String search) {
 
         List<Ad> results = new ArrayList<>();
-        String query = "SELECT * FROM ads WHERE title = ?";
+        String query = "SELECT * FROM ads WHERE title LIKE ?";
         PreparedStatement stmt = null;
 
         try{
             stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, search);
+            stmt.setString(1, '%'+ search + '%');
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Ad newAd = new Ad(
@@ -153,6 +153,31 @@ public class MySQLAdsDao implements Ads {
             return results;
         } catch (SQLException e){
             throw new RuntimeException("Error retrieving searched ads.", e);
+        }
+    }
+
+    @Override
+    public Ad searchAdsById(Long searchId) {
+
+        String query = "SELECT * FROM ads WHERE id = ?;";
+        PreparedStatement stmt = null;
+
+        try{
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, searchId);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                return new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+            } else {
+                throw new RuntimeException("No ad found with the specified ID.");
+            }
+        } catch (SQLException e){
+            throw new RuntimeException("Error retrieving searched ad.", e);
         }
     }
 
