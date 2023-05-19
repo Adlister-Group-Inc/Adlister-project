@@ -110,7 +110,6 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -141,14 +140,8 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(1, '%'+ search + '%');
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Ad newAd = new Ad(
-                        rs.getLong("id"),
-                        rs.getLong("user_id"),
-                        rs.getString("title"),
-                        rs.getString("description")
-                );
+               Ad newAd = extractAd(rs);
                 results.add(newAd);
-                System.out.println(newAd.getTitle());
             }
             return results;
         } catch (SQLException e){
@@ -167,12 +160,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, searchId);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
-                return new Ad(
-                        rs.getLong("id"),
-                        rs.getLong("user_id"),
-                        rs.getString("title"),
-                        rs.getString("description")
-                );
+                return extractAd(rs);
             } else {
                 throw new RuntimeException("No ad found with the specified ID.");
             }
