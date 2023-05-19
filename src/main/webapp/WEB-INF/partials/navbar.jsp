@@ -7,6 +7,10 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav navbar-right">
+                <form action="/search" method="POST">
+                    <input type="text" name="search" placeholder="Search">
+                    <button type="submit">Search</button>
+                </form>
                 <c:if test="${empty user}">
                     <li><a href="/login">Login</a></li>
                 </c:if>
