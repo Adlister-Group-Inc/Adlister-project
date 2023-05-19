@@ -29,6 +29,9 @@
 .container.justify-center {
     justify-content: center;
 }
+.container.align-bottom{
+    align-items: end;
+}
 
     /*
         The "row" is a container element that horizontally separates its
