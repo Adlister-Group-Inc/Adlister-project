@@ -5,8 +5,8 @@
     --secondaryColor: #6F232;
     --textColor: #C3073F;
     --actionHover: rgb(165, 44, 93);
-    --actionfocus: rgba(149, 7, 64, 1);
-    --actionDisabled: rgba(149, 7, 64, 1);
+    --actionfocus: rgb(119, 7, 59);
+    --actionDisabled: rgb(224, 181, 199);
     --font: Rajdhani, sans-serif;
 }
 
@@ -33,10 +33,9 @@ h1 {
 }
 
 img {
-    url("img/herobackground.png");
-    height: 40vh;
-    width: 30vh;
-
+    height: 40px;
+    width: 30px;
+}
 .disabled {
  display: none;
 }
@@ -45,3 +44,4 @@ img {
     display: none;
 
 }
+

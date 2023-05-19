@@ -11,6 +11,7 @@
 
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
+        <a href="/ads/create">Create Ad!</a>
     </div>
     <div>
         <c:forEach var="ad" items="${ads}">

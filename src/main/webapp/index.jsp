@@ -10,7 +10,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="page-wrapper">
-    <div class="container">
+    <div class="container grow">
         <div class="row justify-center">
                 <h1>Welcome to Adlister!</h1>
         </div>
@@ -18,10 +18,12 @@
                 <h3>Pre-Owned is the New New this year!</h3>
         </div>
         <div>
-            <a href="/register">Register</a>
+            <button>
+                <a href="/register">Register</a>
+            </button>
         </div>
     </div>
-    <div class="container">
+    <div class="container justify-end">
         <div class="row justify-center">
             <h2>Our Team</h2>
         </div>
@@ -30,10 +32,10 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="column">Cynthia<img src="HeroBackground.png"></div>
-                <div class="column">John</div>
-                <div class="column">Najee</div>
-                <div class="column">Ezra</div>
+                <div class="column">Cynthia<img src=""></div>
+                <div class="column">John<img src=""></div>
+                <div class="column">Najee<img src="1644340903868.jpeg"></div>
+                <div class="column">Ezra<img src=""></div>
             </div>
         </div>
     </div>
