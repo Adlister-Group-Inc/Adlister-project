@@ -27,3 +27,21 @@ body {
 .btn-primary:hover {
     background-color: var(--actionHover);
 }
+
+h1 {
+
+}
+
+img {
+    url("img/herobackground.png");
+    height: 40vh;
+    width: 30vh;
+
+.disabled {
+ display: none;
+}
+
+.hide {
+    display: none;
+
+}

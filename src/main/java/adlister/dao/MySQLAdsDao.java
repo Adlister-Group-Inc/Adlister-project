@@ -1,7 +1,7 @@
 package adlister.dao;
 
 import adlister.models.Ad;
-import adlister.models.User;
+import java.sql.DriverManager;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -66,6 +66,51 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+        @Override
+        public Ad findById(long id) {
+            String query = "SELECT * FROM ads WHERE id = ?";
+
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+              stmt.setLong(1, id);
+
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    return extractAd(rs);
+                } else {
+                    return null;
+                }
+            } catch (SQLException ex) {
+                }
+            return null;
+        }
+
+
+
+    public Ad updateAd(int id, String newTitle, String newDescription) throws SQLException {
+        String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, newTitle);
+            stmt.setString(2, newDescription);
+            stmt.setInt(3, id);
+
+            int updatedRows = stmt.executeUpdate();
+
+            if (updatedRows > 0) {
+                // If the update was successful, return the updated Ad
+                return findById(id);
+            } else {
+                // If no rows were updated, the Ad with the provided id doesn't exist
+                return null;
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Error while updating ad with id: " + id, ex);
+        }
+    }
+
+
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -84,17 +129,16 @@ public class MySQLAdsDao implements Ads {
     }
 
     //-------------------------------------------------------------------------------
-    //UNTESTED
     @Override
     public List<Ad> searchAds(String search) {
 
         List<Ad> results = new ArrayList<>();
-        String query = "SELECT * FROM ads WHERE title = ?";
+        String query = "SELECT * FROM ads WHERE title LIKE ?";
         PreparedStatement stmt = null;
 
         try{
             stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, search);
+            stmt.setString(1, '%'+ search + '%');
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Ad newAd = new Ad(
@@ -109,6 +153,31 @@ public class MySQLAdsDao implements Ads {
             return results;
         } catch (SQLException e){
             throw new RuntimeException("Error retrieving searched ads.", e);
+        }
+    }
+
+    @Override
+    public Ad searchAdsById(Long searchId) {
+
+        String query = "SELECT * FROM ads WHERE id = ?;";
+        PreparedStatement stmt = null;
+
+        try{
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, searchId);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                return new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+            } else {
+                throw new RuntimeException("No ad found with the specified ID.");
+            }
+        } catch (SQLException e){
+            throw new RuntimeException("Error retrieving searched ad.", e);
         }
     }
 
