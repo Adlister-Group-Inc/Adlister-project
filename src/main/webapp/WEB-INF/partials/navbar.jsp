@@ -1,24 +1,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav navbar-right">
+<div class="container full-width">
+        <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/ads">Adlister</a>
+                </div>
+            </div>
+        <div class="row d-flex">
+            <div class="column d-flex">
                 <form action="/search" method="POST">
                     <input type="text" name="search" placeholder="Search">
                     <button type="submit">Search</button>
                 </form>
+            </div>
+            <div class="align-items-end">
                 <c:if test="${empty user}">
-                    <li><a href="/login">Login</a></li>
+                    <a href="/login">Login</a>
                 </c:if>
                 <c:if test="${not empty user}">
-                    <li><a href="/logout">Logout</a></li>
+                    <a href="/logout">Logout</a>
                 </c:if>
-            </ul>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            </div>
+        </div>
+
+</div>
 </nav>
+
+

@@ -33,10 +33,9 @@ h1 {
 }
 
 img {
-    url("img/herobackground.png");
-    height: 40vh;
-    width: 30vh;
-
+    height: 40px;
+    width: 30px;
+}
 .disabled {
  display: none;
 }

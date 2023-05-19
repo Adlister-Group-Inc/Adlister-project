@@ -11,6 +11,7 @@
 
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
+        <a href="/ads/create">Create Ad!</a>
     </div>
     <div>
         <c:forEach var="ad" items="${ads}">
@@ -32,7 +33,16 @@
                 </div>
                 <input type="submit" class="btn btn-block btn-primary submit">
             </form>
+            <form action="/ads/adDelete" method="post" class="delete-form" style="display:none">
+                <input name="id" value="${ad.id}" style="display: none">
+                <div class="form-group">
+                    <label for="title">Are you sure you want to delete ${ad.title}</label>
+                </div>
+
+                <input type="submit" class="btn btn-block btn-primary submitDelete">
+            </form>
         </c:forEach>
+
 
     </div>
 <script src="/js/profile.js"></script>
