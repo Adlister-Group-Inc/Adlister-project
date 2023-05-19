@@ -12,10 +12,10 @@
                     <button type="submit">Search</button>
                 </form>
                 <c:if test="${empty user}">
-                    <li><a href="login">Login</a></li>
+                    <li><a href="/login">Login</a></li>
                 </c:if>
                 <c:if test="${not empty user}">
-                    <li><a href="logout">Logout</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </c:if>
             </ul>
         </ul>
