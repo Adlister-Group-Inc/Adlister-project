@@ -25,10 +25,9 @@
                 <button type="submit">Search</button>
             </form>
 
-
             <c:if test="${results != null}">
                 <c:forEach var="ad" items="${results}">
-                    <h2>${ad.title}</h2>
+                    <h2><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
                     <p>${ad.description}</p>
                 </c:forEach>
             </c:if>
