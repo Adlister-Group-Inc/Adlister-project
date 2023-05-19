@@ -1,10 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --primaryColor: #000000;
+    --secondaryColor: #6F232;
+    --textColor: #C3073F;
+    --actionHover: rgb(165, 44, 93);
+    --actionfocus: rgba(149, 7, 64, 1);
+    --actionDisabled: rgba(149, 7, 64, 1);
+    --font: Rajdhani, sans-serif;
+}
+
+*{
+    color: var(--textColor);
+}
+
 body {
-    font-family: Rajdhani, sans-serif;
+    font-family: font;
     /*background-image: url("img/HeroBackground.png");*/
-    background-color: #000000;
+    background-color: var(--primaryColor);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    : secondary-text;
+}
+
+.btn-primary:hover {
+    background-color: var(--actionHover);
 }
