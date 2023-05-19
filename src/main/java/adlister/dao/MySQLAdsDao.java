@@ -82,4 +82,34 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    //-------------------------------------------------------------------------------
+    //UNTESTED
+    @Override
+    public List<Ad> searchAds(String search) {
+
+        List<Ad> results = new ArrayList<>();
+        String query = "SELECT * FROM ads WHERE title = ?";
+        PreparedStatement stmt = null;
+
+        try{
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, search);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                Ad newAd = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+                results.add(newAd);
+                System.out.println(newAd.getTitle());
+            }
+            return results;
+        } catch (SQLException e){
+            throw new RuntimeException("Error retrieving searched ads.", e);
+        }
+    }
+
 }
