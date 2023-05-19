@@ -27,3 +27,11 @@ body {
 .btn-primary:hover {
     background-color: var(--actionHover);
 }
+
+.disabled {
+ display: none;
+}
+
+.hide {
+    display: none;
+}
