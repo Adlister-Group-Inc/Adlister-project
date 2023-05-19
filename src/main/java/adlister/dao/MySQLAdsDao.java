@@ -1,6 +1,7 @@
 package adlister.dao;
 
 import adlister.models.Ad;
+import adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -20,6 +21,19 @@ public class MySQLAdsDao implements Ads {
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
+        }
+    }
+
+    @Override
+    public List<Ad> findByUserId(Long userId) {
+        String query = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
         }
     }
 
@@ -68,4 +82,34 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    //-------------------------------------------------------------------------------
+    //UNTESTED
+    @Override
+    public List<Ad> searchAds(String search) {
+
+        List<Ad> results = new ArrayList<>();
+        String query = "SELECT * FROM ads WHERE title = ?";
+        PreparedStatement stmt = null;
+
+        try{
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, search);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                Ad newAd = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+                results.add(newAd);
+                System.out.println(newAd.getTitle());
+            }
+            return results;
+        } catch (SQLException e){
+            throw new RuntimeException("Error retrieving searched ads.", e);
+        }
+    }
+
 }
