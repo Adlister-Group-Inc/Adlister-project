@@ -3,6 +3,7 @@ package adlister.dao;
 import adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
+import java.lang.annotation.Documented;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
@@ -61,6 +62,48 @@ public class MySQLUsersDao implements Users {
             rs.getString("email"),
             rs.getString("password")
         );
+    }
+    @Override
+    public User updateUser(Long id, String newUsername, String newPassword, String newEmail) throws SQLException {
+        String query = "UPDATE users SET username = ?, password = ?, email = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, newUsername);
+            stmt.setString(2, newPassword);
+            stmt.setString(3, newEmail);
+            stmt.setLong(4, id);
+
+            int updatedRows = stmt.executeUpdate();
+            if (updatedRows > 0) {
+                // If the update was successful, return the updated User
+                return findByUsername(newUsername);
+            } else {
+                // If no rows were updated, the User with the provided id doesn't exist
+                return null;
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Error while updating user with id: " + id, ex);
+        }
+    }
+
+    @Override
+    public User updateUser(Long id, String newUsername, String newEmail) throws SQLException {
+        String query = "UPDATE users SET username = ?, email = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, newUsername);
+            stmt.setString(2, newEmail);
+            stmt.setLong(3, id);
+
+            int updatedRows = stmt.executeUpdate();
+            if (updatedRows > 0) {
+                // If the update was successful, return the updated User
+                return findByUsername(newUsername);
+            } else {
+                // If no rows were updated, the User with the provided id doesn't exist
+                return null;
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Error while updating user with id: " + id, ex);
+        }
     }
 
 }
