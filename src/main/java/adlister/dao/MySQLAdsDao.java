@@ -1,7 +1,6 @@
 package adlister.dao;
 
 import adlister.models.Ad;
-import adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -65,6 +64,51 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
+
+        @Override
+        public Ad findById(long id) {
+            String query = "SELECT * FROM ads WHERE id = ?";
+
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+              stmt.setLong(1, id);
+
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    return extractAd(rs);
+                } else {
+                    return null;
+                }
+            } catch (SQLException ex) {
+                }
+            return null;
+        }
+
+
+
+    public Ad updateAd(int id, String newTitle, String newDescription) throws SQLException {
+        String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, newTitle);
+            stmt.setString(2, newDescription);
+            stmt.setInt(3, id);
+
+            int updatedRows = stmt.executeUpdate();
+
+            if (updatedRows > 0) {
+                // If the update was successful, return the updated Ad
+                return findById(id);
+            } else {
+                // If no rows were updated, the Ad with the provided id doesn't exist
+                return null;
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Error while updating ad with id: " + id, ex);
+        }
+    }
+
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(

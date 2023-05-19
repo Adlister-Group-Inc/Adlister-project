@@ -15,12 +15,25 @@
     <div>
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6 ad-card" data-ad-id="${ad.id}">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+                <h2 class="ad-title">${ad.title}</h2>
+                <p class="ad-description">${ad.description}</p>
                 <button class="edit">Edit</button>
                 <button class="delete">Delete</button>
             </div>
+            <form action="/profile" method="post" class="edit-form" style="display:none">
+                <input name="id" value="${ad.id}" style="display: none">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input value="${ad.title}" id="title" name="title" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input value="${ad.description}" id="description" name="description" class="form-control" type="text">
+                </div>
+                <input type="submit" class="btn btn-block btn-primary submit">
+            </form>
         </c:forEach>
+
     </div>
 <script src="/js/profile.js"></script>
 </body>
