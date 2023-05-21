@@ -3,7 +3,6 @@ package adlister.dao;
 import adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.lang.annotation.Documented;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {

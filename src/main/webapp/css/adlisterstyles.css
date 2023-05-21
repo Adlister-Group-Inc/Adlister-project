@@ -21,7 +21,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    : secondary-text;
+: secondary-text;
 }
 
 .btn-primary:hover {
@@ -37,11 +37,10 @@ img {
     width: 30px;
 }
 .disabled {
- display: none;
+    display: none;
 }
 
 .hide {
     display: none;
 
 }
-
