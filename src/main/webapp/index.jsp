@@ -17,6 +17,12 @@
         <div class="row justify-center">
                 <h3>Pre-Owned is the New New this year!</h3>
         </div>
+    </div>
+    <div class="container grow justify-center">
+        <div class="row">
+            <div class="column">I am a Seller<img src="css/img/dream_TradingCard (3).jpg"></div>
+            <div class="column">I am a buyer<img src="css/img/dream_TradingCard (8).jpg"></div>
+        </div>
         <div>
             <button>
                 <a href="/register">Register</a>
@@ -28,14 +34,14 @@
             <h2>Our Team</h2>
         </div>
         <div class="row justify-center">
-            <h6>"The CodeCrafters"</h6>
+            <h6>"Web Devs"</h6>
         </div>
         <div class="container">
             <div class="row">
-                <div class="column">Cynthia<img src=""></div>
-                <div class="column">John<img src=""></div>
-                <div class="column">Najee<img src="1644340903868.jpeg"></div>
-                <div class="column">Ezra<img src=""></div>
+                <div class="column">Cynthia<img src="css/img/cynthia.png"><a href="https://www.linkedin.com/in/cynthia-v-nelson/">LinkedIn</a>|<a href="https://github.com/CynCity17">Github</a>Front-end Dev</div>
+                <div class="column">John<img src="css/img/John.jpg"><a href="https://www.linkedin.com/in/john-buhr-918a8720a/">LinkedIn</a>|<a href="https://github.com/Jbuhr92">Github</a>Back-in Dev</div>
+                <div class="column">Najee<img src="/css/img/najee.jpeg"><a href="https://www.linkedin.com/in/najeealeem/">LinkedIn</a>|<a href="https://github.com/Naleem1">Github</a>Front-end Dev</div>
+                <div class="column">Ezra<img src="css/img/Ezra.jpg"><a href="https://www.linkedin.com/in/ezra-marama/">LinkedIn</a>|<a href="https://github.com/Ez-Megalodon">Github</a>Back-end Dev</div>
             </div>
         </div>
     </div>
