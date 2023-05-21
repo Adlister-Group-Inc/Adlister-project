@@ -29,12 +29,13 @@ body {
 }
 
 h1 {
+    color: blue;
 
 }
 
 img {
-    height: 40px;
-    width: 30px;
+    height: 80px;
+    width: 80px;
 }
 .disabled {
  display: none;
@@ -42,6 +43,10 @@ img {
 
 .hide {
     display: none;
+}
 
+.column {
+    height: 80px;
+    width: 60px;
 }
 

@@ -17,6 +17,12 @@
         <div class="row justify-center">
             <h3>Pre-Owned is the New New this year!</h3>
         </div>
+    </div>
+    <div class="container grow justify-center">
+        <div class="row">
+            <div class="column">I am a Seller<img src="css/img/dream_TradingCard (3).jpg"></div>
+            <div class="column">I am a buyer<img src="css/img/dream_TradingCard (8).jpg"></div>
+        </div>
         <div>
             <button>
                 <a href="/register">Register</a>
