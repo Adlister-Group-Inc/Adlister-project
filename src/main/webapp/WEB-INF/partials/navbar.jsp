@@ -18,6 +18,7 @@
                     <a href="/login">Login</a>
                 </c:if>
                 <c:if test="${not empty user}">
+                    <a href="/profile">Profile</a>
                     <a href="/logout">Logout</a>
                 </c:if>
             </div>
