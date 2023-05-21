@@ -4,7 +4,6 @@ import adlister.dao.Ads;
 import adlister.dao.DaoFactory;
 import adlister.models.Ad;
 import adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +45,6 @@ public class ViewProfileServlet extends HttpServlet {
             Ad adToBeUpdated = ads.findById(adId);
 
 
-
             if (adToBeUpdated.getUserId() == currentUser.getId()) {
                 System.out.println("ads user and current user are the same");
                 DaoFactory.getAdsDao().updateAd(adId, newTitle, newDescription);
@@ -64,9 +62,4 @@ public class ViewProfileServlet extends HttpServlet {
         }
 
     }
-
-
-
 }
-
-

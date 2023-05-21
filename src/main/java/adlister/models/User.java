@@ -1,5 +1,7 @@
 package adlister.models;
 
+import java.util.regex.Pattern;
+
 public class User {
     private long id;
     private String username;

@@ -21,7 +21,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    : secondary-text;
+: secondary-text;
 }
 
 .btn-primary:hover {
@@ -30,15 +30,15 @@ body {
 
 h1 {
     color: blue;
-
 }
 
 img {
     height: 80px;
     width: 80px;
 }
+
 .disabled {
- display: none;
+    display: none;
 }
 
 .hide {
@@ -49,4 +49,3 @@ img {
     height: 80px;
     width: 60px;
 }
-
