@@ -4,7 +4,6 @@ import adlister.dao.DaoFactory;
 import adlister.models.Ad;
 import adlister.models.User;
 import adlister.util.InputValidation;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +16,12 @@ public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getAttribute("titleError");
         request.getAttribute("descriptionError");
+        request.getAttribute("categoryError");
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             // add a return statement to exit out of the entire method.
             return;
         }
-
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
 
     }
@@ -36,7 +35,8 @@ public class CreateAdServlet extends HttpServlet {
         boolean titleError = InputValidation.adTitleError(title);
         boolean descriptionError = InputValidation.adDescError(description);
 
-        boolean inputHasErrors = titleError
+        boolean inputHasErrors =
+                titleError
                 || descriptionError;
 
         if (inputHasErrors){
@@ -46,22 +46,27 @@ public class CreateAdServlet extends HttpServlet {
             return;
         }
 
+        String[] categories = request.getParameterValues("category");
+
+        if (categories == null) {
+            request.setAttribute("categoryError", true);
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request,response);
+            return;
+        }
 
         Ad ad = new Ad(
             loggedInUser.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );
+
         Long adId = DaoFactory.getAdsDao().insert(ad);
 
-        String[] categories = request.getParameterValues("category");
-
-        if (categories != null) {
-            for (String categoryIdStr : categories) {
-                Long categoryId = Long.parseLong(categoryIdStr);
-                DaoFactory.getAdCategoriesDao().linkAdToCategory(adId, categoryId);
-            }
+        for (String categoryIdStr : categories) {
+            Long categoryId = Long.parseLong(categoryIdStr);
+            DaoFactory.getAdCategoriesDao().linkAdToCategory(adId, categoryId);
         }
+
         response.sendRedirect("/ads");
     }
 }
