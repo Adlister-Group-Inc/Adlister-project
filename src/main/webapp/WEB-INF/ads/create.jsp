@@ -14,6 +14,12 @@
             <div class="row">
                 <div class="column">
                     <h1>Create a new Ad</h1>
+                   <c:if test="${titleError == true}">
+                    <p style="color: deeppink">Title must be less than 70 characters</p>
+                    </c:if>
+                    <c:if test="${descriptionError == true}">
+                        <p style="color: deeppink">Description must be less than 255 characters</p>
+                    </c:if>
                     <form action="/ads/create" method="post">
                     <div class="form-group">
                     <label for="title">Title</label>
@@ -27,9 +33,6 @@
                     </form>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-=======
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
@@ -58,7 +61,6 @@
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
->>>>>>> main
     </div>
 </body>
 </html>
