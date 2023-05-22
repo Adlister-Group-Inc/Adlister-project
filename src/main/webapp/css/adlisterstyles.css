@@ -29,11 +29,11 @@ body {
     background-color: var(--actionHover);
 }
 
-.waviy {
+.wavy {
     position: relative;
     display: flex;
 }
-.waviy span {
+.wavy span {
     position: relative;
     display: inline-block;
     font-size: 80px;
