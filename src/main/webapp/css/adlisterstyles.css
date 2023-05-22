@@ -5,9 +5,9 @@
     --primaryColor: #000000;
     --secondaryColor: #6F232;
     --textColor: #C3073F;
-    --actionHover: rgb(165, 44, 93);
+    --actionDisabled: rgb(165, 44, 93);
     --actionfocus: rgb(119, 7, 59);
-    --actionDisabled: rgb(224, 181, 199);
+    --actionHover: rgb(224, 181, 199);
     --font: Rajdhani, sans-serif;
 }
 
@@ -24,9 +24,15 @@ body {
     background-position: center;
 : secondary-text;
 }
-
-.btn-primary:hover {
+.btn-primary, #seller-button, #buyer-button, #register-button {
+    color: white;
+    background-color: var(--actionDisabled);
+}
+.btn-primary, #seller-button, #buyer-button, #register-button:hover {
     background-color: var(--actionHover);
+}
+.btn-primary, #seller-button, #buyer-button, #register-button:active {
+    background-color: var(--actionfocus);
 }
 
 .wavy {
