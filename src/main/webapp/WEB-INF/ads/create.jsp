@@ -26,11 +26,11 @@
                     <form action="/ads/create" method="post">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input id="title" name="title" class="form-control" type="text" style="width: 500px">
+                            <input id="title" name="title" class="form-control" type="text" value="${title}" style="width: 500px">
                         </div>
                         <div class="form-group">
                             <label for="description" style="float: left">Description</label>
-                            <textarea id="description" name="description" class="form-control" type="text" cols="50" rows="10"></textarea>
+                            <textarea id="description" name="description" class="form-control" type="text" cols="50" rows="10">${description}</textarea>
                         </div>
                         <div>
                             <label>Community</label>

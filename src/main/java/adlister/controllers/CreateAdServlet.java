@@ -31,6 +31,8 @@ public class CreateAdServlet extends HttpServlet {
 
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        request.setAttribute("title", title);
+        request.setAttribute("description", description);
 
         boolean titleError = InputValidation.adTitleError(title);
         boolean descriptionError = InputValidation.adDescError(description);
