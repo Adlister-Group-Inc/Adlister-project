@@ -105,6 +105,11 @@ img.dev1, .dev2, .dev3, .dev4{
     cursor: pointer;
 }
 
+.btns{
+    background-color: #4CAF50;
+    color:white;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;

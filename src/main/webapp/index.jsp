@@ -40,12 +40,12 @@
                 <div class="row justify-space-between">
                     <div class="column shrink">
                         <div class="sellerText">
-                            <button id="seller-button">I am a Seller</button>
+                            <button class="btns" id="seller-button">I am a Seller</button>
                         </div>
                     </div>
                     <div class="column shrink">
                         <div class="buyerText">
-                            <button id="buyer-button">I am a buyer</button>
+                            <button class="btns" id="buyer-button">I am a buyer</button>
                         </div>
                     </div>
                 </div>
@@ -58,9 +58,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container gap-20">
                 <div class="row justify-center">
-                    <button>
+                    <button class="btns">
                         <a href="/register">Register</a>
                     </button>
                 </div>
@@ -122,7 +122,6 @@
                 </div>
             </div>
         </div>
->>>>>>> main
 <script src="js/index.js"></script>
 </body>
 </html>
