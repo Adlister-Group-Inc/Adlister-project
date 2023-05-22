@@ -12,7 +12,19 @@
         <div class="page-wrapper">
             <div class="container grow">
                 <div class="row justify-center">
-                    <h1>Welcome to Adlister!</h1>
+                    <div class="waviy">
+                        <span style="--i:1">A</span>
+                        <span style="--i:2">D</span>
+                        <div class="spacer"><p>   </p></div>
+                        <span style="--i:3">L</span>
+                        <span style="--i:4">i</span>
+                        <span style="--i:5">s</span>
+                        <span style="--i:6">t</span>
+                        <span style="--i:7">e</span>
+                        <span style="--i:8">r</span>
+                    </div>
+<%--                    <h1>Welcome to Adlister!</h1>--%>
+
                 </div>
                 <div class="row justify-center">
                     <h3>Pre-Owned is the New New this year!</h3>

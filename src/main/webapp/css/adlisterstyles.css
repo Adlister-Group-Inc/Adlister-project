@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+
 :root {
     --primaryColor: #000000;
     --secondaryColor: #6F232;
@@ -15,7 +16,7 @@
 }
 
 body {
-    font-family: font;
+    font-family: var(--font);
     /*background-image: url("img/HeroBackground.png");*/
     background-color: var(--primaryColor);
     background-repeat: no-repeat;
@@ -26,6 +27,27 @@ body {
 
 .btn-primary:hover {
     background-color: var(--actionHover);
+}
+
+.waviy {
+    position: relative;
+    display: flex;
+}
+.waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 80px;
+    animation: flip 2s;
+    animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+    0%, 80% {
+        transform: rotateY(360deg)
+    }
+}
+
+div.spacer{
+    margin: 15px;
 }
 
 .image-wrapper1, .image-wrapper{
