@@ -31,7 +31,16 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        Long adId = DaoFactory.getAdsDao().insert(ad);
+
+        String[] categories = request.getParameterValues("category");
+
+        if (categories != null) {
+            for (String categoryIdStr : categories) {
+                Long categoryId = Long.parseLong(categoryIdStr);
+                DaoFactory.getAdCategoriesDao().linkAdToCategory(adId, categoryId);
+            }
+        }
         response.sendRedirect("/ads");
     }
 }
