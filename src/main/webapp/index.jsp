@@ -31,7 +31,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <button>
+                    <button id="register-button">
                         <a href="/register">Register</a>
                     </button>
                 </div>
@@ -72,8 +72,8 @@
                         <img src="css/img/hishairdown.gif" class="dev1" alt="Cynthia Front End Dev">
                     </div>
                     <div class="socialLinks">
-                        <a href="https://www.linkedin.com/in/cynthia-v-nelson/">LinkedIn |</a>
-                        <a href="https://github.com/CynCity17"> Github</a>
+                        <i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/cynthia-v-nelson/">LinkedIn |</a>
+                        <i class="fa-brands fa-github"></i><a href="https://github.com/CynCity17"> Github</a>
                     </div>
                         <p>Front-End Dev</p>
                     </div>
@@ -83,8 +83,8 @@
                         <img src="css/img/DevJohn.jpg" class="dev2" alt="John Back End Dev">
                     </div>
                     <div class="socialLinks">
-                        <a href="https://www.linkedin.com/in/john-buhr-918a8720a/">LinkedIn |</a>
-                        <a href="https://github.com/Jbuhr92"> Github</a>
+                        <i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/john-buhr-918a8720a/">LinkedIn |</a>
+                        <i class="fa-brands fa-github"></i><a href="https://github.com/Jbuhr92"> Github</a>
                     </div>
                         <p>Back-End Dev</p>
                     </div>
@@ -94,8 +94,8 @@
                         <img src="/css/img/DevNajee.jpeg" class="dev3" alt="Najee Front End Dev">
                     </div>
                     <div class="socialLinks">
-                        <a href="https://www.linkedin.com/in/najeealeem/">LinkedIn |</a>
-                        <a href="https://github.com/Naleem1"> Github</a>
+                        <i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/najeealeem/">LinkedIn |</a>
+                        <i class="fa-brands fa-github"></i> <a href="https://github.com/Naleem1"> Github</a>
                     </div>
                         <p>Front-End Dev</p>
                     </div>
@@ -105,8 +105,8 @@
                         <img src="css/img/DevEzra.jpg" class="dev4" alt="Ezra Back End Dev">
                     </div>
                     <div class="socialLinks">
-                        <a href="https://www.linkedin.com/in/ezra-marama/">LinkedIn |</a>
-                        <a href="https://github.com/Ez-Megalodon"> Github</a>
+                        <i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/ezra-marama/">LinkedIn |</a>
+                        <i class="fa-brands fa-github"></i><a href="https://github.com/Ez-Megalodon"> Github</a>
                     </div>
                         <p>Back-End Dev</p>
                     </div>

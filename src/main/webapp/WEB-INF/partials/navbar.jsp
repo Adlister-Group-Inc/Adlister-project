@@ -7,13 +7,13 @@
             </div>
             <div class="column shrink navbar-search">
                 <form action="/search" method="POST">
-                    <input type="text" name="search" placeholder="Search">
-                    <button type="submit">Search</button>
+                    <input type="text" name="search" placeholder="Find Your New New">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
                 </form>
             </div>
             <c:if test="${empty user}">
                 <div class="column shrink justify-right">
-                <a class="login-logout" href="/login">Login</a>
+                    <i class="fa-solid fa-user"></i><a class="login-logout" href="/login">Login</a>
                 </div>
             </c:if>
             <c:if test="${not empty user}">
@@ -21,7 +21,7 @@
                     <a class="login-logout" href="/profile">Profile</a>
                 </div>
                 <div class="column shrink justify-center">
-                    <a class="login-logout" href="/logout">Logout</a>
+                    <i class="fa-light fa-user"></i><a class="login-logout" href="/logout">Logout</a>
                 </div>
             </c:if>
             <div class="dropdown">
