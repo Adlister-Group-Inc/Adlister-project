@@ -53,21 +53,29 @@ public class InputValidation {
     }
 
     public static boolean adTitleError (String title){
+        if (title == null ){
+            return true;
+        }
         String regex = "^(?=.*[a-z])(?=\\S+$).{10,70}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(title);
         if (m.matches()){
+            System.out.println(title + "--- no problems for this ad title");
             return false;
         }
         return true;
     }
 
     public static boolean adDescError (String description){
+        if (description == null){
+            return true;
+        }
         String regex = "^(?=.*[a-z])(?=\\S+$).{10,255}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(description);
 
         if (m.matches()){
+            System.out.println(description + "--- no problems for this ad description");
             return false;
         }
         return true;

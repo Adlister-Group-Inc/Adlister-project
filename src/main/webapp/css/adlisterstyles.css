@@ -56,3 +56,61 @@ img.dev1, .dev2, .dev3, .dev4{
 .sellerText{
 
 }
+
+/* NAV BAR*/
+.login-logout {
+    font-size: 25px;
+    font-weight: bolder;
+    display: flex;
+}
+.adLister-logo {
+    font-size: 35px;
+    justify-content: center;
+    font-weight: bolder;
+}
+.navbar-search {
+    justify-content: center;
+}
+/*NAV BAR DROPDOWN*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-left: 5px;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.dropdown-content select:hover, .dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
