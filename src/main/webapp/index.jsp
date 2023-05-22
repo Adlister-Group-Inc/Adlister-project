@@ -36,24 +36,26 @@
                     </button>
                 </div>
             </div>
-            <div class="container grow justify-center">
-                <div class="row">
-                <div class="column">
-                    <div class="sellerText">
-                        <button id="seller-button">I am a Seller</button>
+            <div class="container justify-center">
+                <div class="row justify-space-between">
+                    <div class="column shrink">
+                        <div class="sellerText">
+                            <button id="seller-button">I am a Seller</button>
+                        </div>
                     </div>
-                    <div class="image-wrapper1">
-                        <img src="css/img/GetPaidNT.png">
+                    <div class="column shrink">
+                        <div class="buyerText">
+                            <button id="buyer-button">I am a buyer</button>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="buyerText">
-                        <button id="buyer-button">I am a buyer</button>
+                <div class="row gap-10 justify-center">
+                    <div class="image-wrapper1">
+                        <img src="css/img/GetPaidNT.png">
                     </div>
                     <div class="image-wrapper">
                         <img src="css/img/BuyerInfo.png">
                     </div>
-                </div>
                 </div>
             </div>
             <div class="container justify-end">

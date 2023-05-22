@@ -11,10 +11,10 @@
 
 <div class="container">
     <h1>Welcome, ${user.username}!</h1>
-    <a href="/ads/create">Create Ad!</a>
+    <button><a href="/ads/create">Create Ad!</a></button>
 </div>
 <div>
-
+<div class="page-wrapper">
     <c:forEach var="ad" items="${ads}">
         <div class="ad-card" data-ad-id="${ad.id}">
             <h2 class="ad-title">${ad.title}</h2>
@@ -43,7 +43,7 @@
             <input type="submit" class="btn btn-block btn-primary submitDelete">
         </form>
     </c:forEach>
-
+</div>
 </div>
 <script src="/js/profile.js"></script>
 </body>
