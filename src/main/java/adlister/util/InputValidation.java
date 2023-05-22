@@ -53,12 +53,10 @@ public class InputValidation {
     }
 
     public static boolean adTitleError (String title){
-        if (title == null ){
-            return true;
-        }
-        String regex = "^(?=.*[a-z])(?=\\S+$).{10,70}$";
+        System.out.println("made it into adTitleError check");
+        String regex = "^(?=.*[a-z]).{5,70}$";
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(title);
+        Matcher m = p.matcher(title.trim());
         if (m.matches()){
             System.out.println(title + "--- no problems for this ad title");
             return false;
@@ -67,13 +65,10 @@ public class InputValidation {
     }
 
     public static boolean adDescError (String description){
-        if (description == null){
-            return true;
-        }
-        String regex = "^(?=.*[a-z])(?=\\S+$).{10,255}$";
+        System.out.println("made it into adDescError check");
+        String regex = "^(?=.*[a-z]).{5,255}$";
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(description);
-
+        Matcher m = p.matcher(description.trim());
         if (m.matches()){
             System.out.println(description + "--- no problems for this ad description");
             return false;

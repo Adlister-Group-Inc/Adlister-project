@@ -17,7 +17,7 @@
 <div class="page-wrapper">
     <c:forEach var="ad" items="${ads}">
         <div class="ad-card" data-ad-id="${ad.id}">
-            <h2 class="ad-title">${ad.title}</h2>
+            <h2 class="ad-title"><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
             <p class="ad-description">${ad.description}</p>
             <button class="edit">Edit</button>
             <button class="delete">Delete</button>

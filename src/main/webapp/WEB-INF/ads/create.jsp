@@ -15,10 +15,13 @@
                 <div class="column">
                     <h1>Create a new Ad</h1>
                    <c:if test="${titleError == true}">
-                    <p style="color: deeppink">Title must be less than 70 characters</p>
+                    <p style="color: deeppink">Title must be at least 5 characters & less than 70 characters</p>
                     </c:if>
                     <c:if test="${descriptionError == true}">
-                        <p style="color: deeppink">Description must be less than 255 characters</p>
+                        <p style="color: deeppink">Description must be at least 5 characters & less than 255 characters</p>
+                    </c:if>
+                    <c:if test="${categoryError == true}">
+                        <p style="color: deeppink">You must select at least 1 category!</p>
                     </c:if>
                     <form action="/ads/create" method="post">
                         <div class="form-group">
