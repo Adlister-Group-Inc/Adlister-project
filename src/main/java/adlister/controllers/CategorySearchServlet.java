@@ -16,15 +16,14 @@ import java.util.List;
 public class CategorySearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/category.jsp").forward(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("category");
-        List<Category> results = DaoFactory.getCategoriesDao().searchCategory(search);
+        req.setAttribute("category", search);
+        Long catId = DaoFactory.getCategoriesDao().searchCategory(search);
+        List<Ad> results = DaoFactory.getAdCategoriesDao().getAllAdsByCategory(catId);
+        for (Ad ad: results){
+            System.out.println(ad.getId());
+        }
         req.setAttribute("results", results);
         req.getRequestDispatcher("/WEB-INF/category.jsp").forward(req,resp);
     }
-
 }

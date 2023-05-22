@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MySQLCategoriesDao implements Categories{
     private Connection connection;
+
     public MySQLCategoriesDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -31,7 +32,7 @@ public class MySQLCategoriesDao implements Categories{
             ResultSet rs = stmt.executeQuery();
             return createCategoriesFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving all categories.", e);
         }
     }
     private List<Category> createCategoriesFromResults(ResultSet rs) throws SQLException {
@@ -49,22 +50,20 @@ public class MySQLCategoriesDao implements Categories{
     }
 
     @Override
-    public List<Category> searchCategory(String search) {
-        List<Category> results = new ArrayList<>();
+    public Long searchCategory(String search) {
         String query = "SELECT * FROM categories WHERE category LIKE ?";
         PreparedStatement stmt = null;
-
+        Category newCategories = null;
         try{
             stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, '%'+ search + '%');
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Category newCategories = extractCategories(rs);
-                results.add(newCategories);
+                newCategories = extractCategories(rs);
             }
-            return results;
+            return newCategories.getId();
         } catch (SQLException e){
-            throw new RuntimeException("Error retrieving searched ads.", e);
+            throw new RuntimeException("Error retrieving searched category.", e);
         }
     }
 

@@ -1,5 +1,6 @@
 package adlister.dao;
 
+import adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -69,7 +70,32 @@ public class MySQLAdCategoryDao implements AdsCategory {
     }
 
     @Override
+    public List<Ad> getAllAdsByCategory(Long categoryId) {
+        System.out.println("inside getAdsByCategory");
+        List<Ad> ads = new ArrayList<>();
+        String sql = "SELECT * FROM ads WHERE id IN ( SELECT ad_id FROM ads_category WHERE category_id = ?)";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, categoryId);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                Ad ad = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+                ads.add(ad);
+            }
+            return ads;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ads by Category id.", e);
+        }
+    }
+
+    @Override
     public List<Long> getAdsByCategory(Long categoryId) {
+        System.out.println("inside getAdsByCategory");
         List<Long> ads = new ArrayList<>();
         String sql = "SELECT ad_id FROM ads_category WHERE category_id = ?";
 
@@ -77,13 +103,16 @@ public class MySQLAdCategoryDao implements AdsCategory {
             stmt.setLong(1, categoryId);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                ads.add(rs.getLong("adId"));
+                System.out.println(rs.getLong("ad_id"));
+                ads.add(rs.getLong("ad_id"));
             }
+            for (Long ad: ads){
+                System.out.println("ad Id from getAdsByCategory method :" + ad);
+            }
+            return ads;
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving ads by Category id.", e);
         }
-
-        return ads;
     }
 
     @Override
