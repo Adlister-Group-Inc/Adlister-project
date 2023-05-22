@@ -18,11 +18,11 @@
         </c:if>
 
         <c:if test="${not empty category}">
-          <h1>You are searching for ${category}"</h1>
+          <h1>You are searching for ${category}</h1>
         </c:if>
 
-        <c:if test="${categoryResults != null}">
-          <c:forEach var="ad" items="${categoryResults}">
+        <c:if test="${results != null}">
+          <c:forEach var="ad" items="${results}">
             <h2><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
             <p>${ad.description}</p>
           </c:forEach>
