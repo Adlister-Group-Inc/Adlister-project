@@ -3,37 +3,73 @@ package adlister.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+//---------------------RETURNS TRUE IF ERROR IS PRESENT----------------------\\
 public class InputValidation {
 
-    public static boolean isEmailValid (String email)
-    {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null)
-            return false;
-        return pat.matcher(email).matches();
-    }
+    public static boolean emailError (String email) {
+        if (email == null) {
+            return true;
+        } else {
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                    "[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                    "A-Z]{2,7}$";
+            Pattern pat = Pattern.compile(emailRegex);
 
-    public static boolean isPasswordValid (String password){
-       String regex = "^(?=.*[a-z])(?=\\S+$).{8,20}$";
-        Pattern p = Pattern.compile(regex);
-        if (password == null) {
-            return false;
+            if(pat.matcher(email).matches()){
+                return false;
+            }
         }
-        Matcher m = p.matcher(password);
-        return m.matches();
+        return true;
     }
 
-    public static boolean isUsernameValid (String username){
-        String regex = "^(?=.*[a-z])(?=\\S+$).{4,25}$";
-        Pattern p = Pattern.compile(regex);
+    public static boolean passwordError (String password, String passwordConfirmation){
+        if (password == null) {
+            return true;
+        } else if (password.equals(passwordConfirmation)) {
+            String regex = "^(?=.*[a-z])(?=\\S+$).{8,20}$";
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(password);
+            if (m.matches()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean usernameError (String username){
         if (username == null) {
             return false;
+        } else {
+            String regex = "^(?=.*[a-z])(?=\\S+$).{4,25}$";
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(username);
+            if (m.matches()){
+                return false;
+            }
         }
-        Matcher m = p.matcher(username);
-        return m.matches();
+        return true;
+    }
+
+    public static boolean adTitleError (String title){
+        String regex = "^(?=.*[a-z])(?=\\S+$).{10,70}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(title);
+        if (m.matches()){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean adDescError (String description){
+        String regex = "^(?=.*[a-z])(?=\\S+$).{10,255}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(description);
+
+        if (m.matches()){
+            return false;
+        }
+        return true;
     }
 }

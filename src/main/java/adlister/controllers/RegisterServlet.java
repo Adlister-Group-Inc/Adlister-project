@@ -11,29 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "adlister.controllers.RegisterServlet", urlPatterns = "/register")
+@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("usernameError",request.getParameter("usernameError"));
+        request.setAttribute("passwordError",request.getParameter("passwordError"));
+        request.setAttribute("emailError",request.getParameter("emailError"));
+
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
         // validate input
-        boolean inputHasErrors = username.isEmpty()
-            || (!InputValidation.isUsernameValid(username))
-            || email.isEmpty()
-            || (!InputValidation.isEmailValid(email))
-            || password.isEmpty()
-            || (!InputValidation.isPasswordValid(password))
-            || (!password.equals(passwordConfirmation));
+        boolean inputHasErrors = InputValidation.usernameError(username)
+                || InputValidation.passwordError(password, passwordConfirmation)
+                || InputValidation.emailError(email);
+
+        boolean usernameError = InputValidation.usernameError(username);
+        boolean passwordError = InputValidation.passwordError(password, passwordConfirmation);
+        boolean emailError =  InputValidation.emailError(email);
 
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+            request.setAttribute("usernameError", usernameError);
+            request.setAttribute("passwordError", passwordError);
+            request.setAttribute("emailError", emailError);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response);
             return;
         }
 

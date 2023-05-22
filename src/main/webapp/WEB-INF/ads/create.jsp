@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,6 +9,12 @@
 <body>
     <div class="container">
         <h1>Create a new Ad</h1>
+        <c:if test="${titleError == true}">
+            <p style="color: deeppink">Title must be less than 70 characters</p>
+        </c:if>
+        <c:if test="${descriptionError == true}">
+            <p style="color: deeppink">Description must be less than 255 characters</p>
+        </c:if>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
