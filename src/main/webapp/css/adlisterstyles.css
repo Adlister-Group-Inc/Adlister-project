@@ -28,13 +28,13 @@ body {
     background-color: var(--actionHover);
 }
 
-h1 {
-    color: blue;
-}
 
 img {
-    height: 80px;
-    width: 80px;
+
+}
+
+.sellerText{
+
 }
 
 .disabled {
@@ -43,9 +43,4 @@ img {
 
 .hide {
     display: none;
-}
-
-.column {
-    height: 80px;
-    width: 60px;
 }
