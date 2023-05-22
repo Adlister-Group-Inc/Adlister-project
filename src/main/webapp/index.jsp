@@ -12,7 +12,7 @@
         <div class="page-wrapper">
             <div class="container grow">
                 <div class="row justify-center">
-                    <div class="waviy">
+                    <div class="wavy">
                         <span style="--i:1">A</span>
                         <span style="--i:2">D</span>
                         <div class="spacer"><p>   </p></div>
@@ -29,10 +29,10 @@
 
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="container">
                 <div class="row">
-                    <button id="register-button">
-                        <a href="/register">Register</a>
+                    <button id="register-button"><a href="/register">Register</a>
                     </button>
                 </div>
             </div>
@@ -41,19 +41,42 @@
                 <div class="column">
                     <div class="sellerText">
                         <button id="seller-button">I am a Seller</button>
+=======
+<%--            <div class="container">--%>
+<%--                <div class="row">--%>
+<%--                    <button>--%>
+<%--                        <a href="/register">Register</a>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+            <div class="container justify-center">
+                <div class="row justify-space-between">
+                    <div class="column shrink">
+                        <div class="sellerText">
+                            <button class="btns" id="seller-button">I am a Seller</button>
+                        </div>
+>>>>>>> main
                     </div>
-                    <div class="image-wrapper1">
-                        <img src="css/img/GetPaidNT.png">
+                    <div class="column shrink">
+                        <div class="buyerText">
+                            <button class="btns" id="buyer-button">I am a buyer</button>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="buyerText">
-                        <button id="buyer-button">I am a buyer</button>
+                <div class="row gap-10 justify-center">
+                    <div class="image-wrapper1">
+                        <img src="css/img/GetPaidNT.png">
                     </div>
                     <div class="image-wrapper">
                         <img src="css/img/BuyerInfo.png">
                     </div>
                 </div>
+            </div>
+            <div class="container gap-20">
+                <div class="row justify-center">
+                    <button class="btns">
+                        <a href="/register">Register</a>
+                    </button>
                 </div>
             </div>
             <div class="container justify-end">

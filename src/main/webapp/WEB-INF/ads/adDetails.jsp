@@ -10,10 +10,20 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
+<<<<<<< HEAD
+<%--    <div class="row">--%>
+        <div class="column">
+            <h2>${ad.title}</h2>
+            <p>${ad.description}</p>
+        </div>
+<%--    </div>--%>
+
+=======
     <div class="column">
       <h2>${ad.title}</h2>
       <p>${ad.description}</p>
     </div>
+>>>>>>> main
 </div>
 
 </body>

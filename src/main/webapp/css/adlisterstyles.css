@@ -35,11 +35,11 @@ body {
     background-color: var(--actionfocus);
 }
 
-.waviy {
+.wavy {
     position: relative;
     display: flex;
 }
-.waviy span {
+.wavy span {
     position: relative;
     display: inline-block;
     font-size: 80px;
@@ -109,6 +109,11 @@ img.dev1, .dev2, .dev3, .dev4{
     font-size: 16px;
     border: none;
     cursor: pointer;
+}
+
+.btns{
+    background-color: #4CAF50;
+    color:white;
 }
 
 .dropdown-content {
