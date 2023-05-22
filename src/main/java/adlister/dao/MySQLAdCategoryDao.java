@@ -85,4 +85,17 @@ public class MySQLAdCategoryDao implements AdsCategory {
 
         return ads;
     }
+
+    @Override
+    public void deleteAdsFromCategory(Long adId) {
+        String query = "DELETE FROM ads_category WHERE ad_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setLong(1, adId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

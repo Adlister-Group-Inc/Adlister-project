@@ -10,4 +10,5 @@ public interface AdsCategory {
         List<Long> getCategoriesByAdId(Long adId);
 
         List<Long> getAdsByCategory(Long categoryId);
+        void deleteAdsFromCategory(Long adId);
 }
