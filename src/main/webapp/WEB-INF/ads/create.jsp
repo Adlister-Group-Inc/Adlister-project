@@ -17,6 +17,28 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            <div>
+                <label>Community</label>
+                <input name="category" value="1" type="checkbox">
+                <label>Services</label>
+                <input name="category" value="2" type="checkbox">
+                <label>housing</label>
+                <input name="category" value="3" type="checkbox">
+                <label>For Sale</label>
+                <input name="category" value="4" type="checkbox">
+                <label>Jobs</label>
+                <input name="category" value="5" type="checkbox">
+                <label>Gigs</label>
+                <input name="category" value="6" type="checkbox">
+                <label>Resumes</label>
+                <input name="category" value="7" type="checkbox">
+                <label>Personals</label>
+                <input name="category" value="8" type="checkbox">
+                <label>Discussion Forums</label>
+                <input name="category" value="9" type="checkbox">
+                <label>Events</label>
+                <input name="category" value="10" type="checkbox">
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
