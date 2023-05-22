@@ -1,5 +1,6 @@
 package adlister.dao;
 
+import adlister.models.Ad;
 import adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
 
@@ -49,8 +50,24 @@ public class MySQLCategoriesDao implements Categories{
 
     @Override
     public List<Category> searchCategory(String search) {
-        return null;
+        List<Category> results = new ArrayList<>();
+        String query = "SELECT * FROM categories WHERE category LIKE ?";
+        PreparedStatement stmt = null;
+
+        try{
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, '%'+ search + '%');
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                Category newCategories = extractCategories(rs);
+                results.add(newCategories);
+            }
+            return results;
+        } catch (SQLException e){
+            throw new RuntimeException("Error retrieving searched ads.", e);
+        }
     }
+
 
     @Override
     public Category updateCategory(int adId, String newTitle, String newDescription, String newCategory) throws SQLException {
