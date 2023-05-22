@@ -3,7 +3,6 @@ package adlister.controllers;
 import adlister.dao.DaoFactory;
 import adlister.models.User;
 import adlister.util.Password;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

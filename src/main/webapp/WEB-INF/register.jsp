@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,9 +8,17 @@
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
-
     <div class="container">
         <h1>Please fill in your information.</h1>
+        <c:if test="${usernameError == true}">
+            <p style="color: red">Something went wrong with your username, please try again.</p>
+        </c:if>
+        <c:if test="${passwordError == true}">
+            <p style="color: red">Something went wrong with your password, please try again.</p>
+        </c:if>
+        <c:if test="${emailError == true}">
+            <p style="color: red">Something went wrong with your Email, please try again.</p>
+        </c:if>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
