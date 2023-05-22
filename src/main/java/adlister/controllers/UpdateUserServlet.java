@@ -49,7 +49,6 @@ public class UpdateUserServlet extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("user: " + updatedUser.getUsername() + " updated.");
             req.getSession().setAttribute("user", updatedUser );
             resp.sendRedirect("/profile");
         } else {
@@ -68,7 +67,6 @@ public class UpdateUserServlet extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("user: " + updatedUser.getUsername() + " updated.");
             req.getSession().setAttribute("user", updatedUser );
             resp.sendRedirect("/profile");
         }
