@@ -106,10 +106,21 @@
         <div class="page-wrapper">
             <div class="container grow">
                 <div class="row justify-center">
-                    <h1>Welcome to Adlister!</h1>
+                    <div class="waviy">
+                        <span style="--i:1">A</span>
+                        <span style="--i:2">D</span>
+                        <div class="spacer"><p>   </p></div>
+                        <span style="--i:3">L</span>
+                        <span style="--i:4">i</span>
+                        <span style="--i:5">s</span>
+                        <span style="--i:6">t</span>
+                        <span style="--i:7">e</span>
+                        <span style="--i:8">r</span>
+                    </div>
                 </div>
-                <div class="row justify-center">
-                    <h3>Pre-Owned is the New New this year!</h3>
+                <div class="row grow justify-center">
+                    <h3>Preowned is the NEW NEW this year</h3>
+
                 </div>
             </div>
             <div class="container">
@@ -119,21 +130,25 @@
                     </button>
                 </div>
             </div>
-            <div class="container grow justify-center">
-                <div class="column">
-                    <div class="sellerText">
-                        <button id="seller-button">I am a Seller</button>
+            <div class="container justify-center">
+                <div class="row justify-space-between">
+                    <div class="column shrink">
+                        <div class="sellerText">
+                            <button id="seller-button">I am a Seller</button>
+                        </div>
                     </div>
-                    <div class="image-wrapper1">
-                        <img src="css/img/SellerGetMoney.jpg">
+                    <div class="column shrink">
+                        <div class="buyerText">
+                            <button id="buyer-button">I am a buyer</button>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="buyerText">
-                        <button id="buyer-button">I am a buyer</button>
+                <div class="row gap-10 justify-center">
+                    <div class="image-wrapper1">
+                        <img src="css/img/GetPaidNT.png">
                     </div>
                     <div class="image-wrapper">
-                        <img src="css/img/BuyerOpenOrder.jpg">
+                        <img src="css/img/BuyerInfo.png">
                     </div>
                 </div>
             </div>
