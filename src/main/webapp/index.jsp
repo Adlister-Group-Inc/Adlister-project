@@ -19,22 +19,20 @@
         </div>
     </div>
     <div class="container grow justify-center">
-        <div class="row">
-            <div class="column align-right">
-                <div class="sellerText">
-                    <button id="seller-button">I am a Seller</button>
-                </div>
-                <div class="image-wrapper1">
-                    <img src="css/img/dream_TradingCard (3).jpg">
-                </div>
+        <div class="column">
+            <div class="sellerText">
+                <button id="seller-button">I am a Seller</button>
             </div>
-            <div class="column">
-                <div class="buyerText">
-                    <button id="buyer-button">I am a buyer</button>
-                </div>
-                <div class="image-wrapper">
-                    <img src="css/img/dream_TradingCard (8).jpg">
-                </div>
+            <div class="image-wrapper1">
+                <img src="css/img/dream_TradingCard (3).jpg">
+            </div>
+        </div>
+        <div class="column">
+            <div class="buyerText">
+                <button id="buyer-button">I am a buyer</button>
+            </div>
+            <div class="image-wrapper">
+                <img src="css/img/dream_TradingCard (8).jpg">
             </div>
         </div>
     </div>
@@ -50,17 +48,17 @@
             <h2>Our Team</h2>
         </div>
         <div class="row justify-center">
-            <h6>"Web Devs"</h6>
+            <h3>"Web Devs"</h3>
         </div>
     </div>
-    <div class="container">
-        <div class="row justify-space-between">
+    <div class="container justify-space-between">
+        <div class="row dev">
             <div class="column">
                 <p>Cynthia</p>
-                <div class="image-wrapper">
-                    <img src="css/img/cynthia.png">
+                <div class="image-wrapper-devs">
+                    <img src="css/img/hishairdown.gif" class="dev1" alt="Cynthia Front End Dev">
                 </div>
-                <div>
+                <div class="socialLinks">
                     <a href="https://www.linkedin.com/in/cynthia-v-nelson/">LinkedIn |</a>
                     <a href="https://github.com/CynCity17"> Github</a>
                 </div>
@@ -68,10 +66,10 @@
             </div>
             <div class="column">
                 <p>John</p>
-                <div class="image-wrapper">
-                    <img src="css/img/John.jpg">
+                <div class="image-wrapper-devs">
+                    <img src="css/img/DevJohn.jpg" class="dev2" alt="John Back End Dev">
                 </div>
-                <div>
+                <div class="socialLinks">
                     <a href="https://www.linkedin.com/in/john-buhr-918a8720a/">LinkedIn |</a>
                     <a href="https://github.com/Jbuhr92"> Github</a>
                 </div>
@@ -79,10 +77,10 @@
             </div>
             <div class="column">
                 <p>Najee</p>
-                <div class="image-wrapper">
-                    <img src="/css/img/najee.jpeg">
+                <div class="image-wrapper-devs">
+                    <img src="/css/img/DevNajee.jpeg" class="dev3" alt="Najee Front End Dev">
                 </div>
-                <div>
+                <div class="socialLinks">
                     <a href="https://www.linkedin.com/in/najeealeem/">LinkedIn |</a>
                     <a href="https://github.com/Naleem1"> Github</a>
                 </div>
@@ -90,10 +88,10 @@
             </div>
             <div class="column">
                 <p>Ezra</p>
-                <div class="image-wrapper">
-                    <img src="css/img/Ezra.jpg">
+                <div class="image-wrapper-devs">
+                    <img src="css/img/DevEzra.jpg" class="dev4" alt="Ezra Back End Dev">
                 </div>
-                <div>
+                <div class="socialLinks">
                     <a href="https://www.linkedin.com/in/ezra-marama/">LinkedIn |</a>
                     <a href="https://github.com/Ez-Megalodon"> Github</a>
                 </div>
