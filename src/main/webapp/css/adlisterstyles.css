@@ -28,19 +28,31 @@ body {
     background-color: var(--actionHover);
 }
 
+.image-wrapper1, .image-wrapper{
+    display: flex;
+    height: 300px;
+    width: 200px;
+}
 
-img {
+div.row.dev{
+    max-width: unset;
+}
+.row.dev p, .socialLinks {
+    align-self: center;
+    justify-self: center;
+}
 
+.image-wrapper-devs{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+img.dev1, .dev2, .dev3, .dev4{
+    height: 195px;
+    width: 165px;
 }
 
 .sellerText{
 
-}
-
-.disabled {
-    display: none;
-}
-
-.hide {
-    display: none;
 }
