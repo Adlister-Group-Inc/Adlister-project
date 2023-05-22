@@ -16,13 +16,13 @@
 
 body {
     font-family: font;
-    /*background-image: url("img/HeroBackground.png");*/
     background-color: var(--primaryColor);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    /*background-position: center;*/
 : secondary-text;
 }
+
 
 .btn-primary:hover {
     background-color: var(--actionHover);
@@ -30,11 +30,6 @@ body {
 
 h1 {
     color: blue;
-}
-
-img {
-    height: 80px;
-    width: 80px;
 }
 
 .disabled {
@@ -45,7 +40,3 @@ img {
     display: none;
 }
 
-.column {
-    height: 80px;
-    width: 60px;
-}
