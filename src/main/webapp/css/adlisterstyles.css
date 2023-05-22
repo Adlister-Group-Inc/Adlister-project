@@ -51,9 +51,6 @@ div.spacer{
 }
 
 .image-wrapper1, .image-wrapper{
-    display: flex;
-    height: 300px;
-    width: 200px;
 }
 
 div.row.dev{

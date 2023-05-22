@@ -23,11 +23,10 @@
                         <span style="--i:7">e</span>
                         <span style="--i:8">r</span>
                     </div>
-<%--                    <h1>Welcome to Adlister!</h1>--%>
-
                 </div>
-                <div class="row justify-center">
-                    <h3>Pre-Owned is the New New this year!</h3>
+                <div class="row grow justify-center">
+                    <h3>Preowned is the NEW NEW this year</h3>
+
                 </div>
             </div>
             <div class="container">
@@ -38,12 +37,13 @@
                 </div>
             </div>
             <div class="container grow justify-center">
+                <div class="row">
                 <div class="column">
                     <div class="sellerText">
                         <button id="seller-button">I am a Seller</button>
                     </div>
                     <div class="image-wrapper1">
-                        <img src="css/img/SellerGetMoney.jpg">
+                        <img src="css/img/GetPaidNT.png">
                     </div>
                 </div>
                 <div class="column">
@@ -51,8 +51,9 @@
                         <button id="buyer-button">I am a buyer</button>
                     </div>
                     <div class="image-wrapper">
-                        <img src="css/img/BuyerOpenOrder.jpg">
+                        <img src="css/img/BuyerInfo.png">
                     </div>
+                </div>
                 </div>
             </div>
             <div class="container justify-end">
