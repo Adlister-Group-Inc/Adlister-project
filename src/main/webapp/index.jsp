@@ -26,36 +26,14 @@
                 </div>
                 <div class="row grow justify-center">
                     <h3>Preowned is the NEW NEW this year</h3>
-
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="container">
-                <div class="row">
-                    <button id="register-button"><a href="/register">Register</a>
-                    </button>
-                </div>
-            </div>
-            <div class="container grow justify-center">
-                <div class="row">
-                <div class="column">
-                    <div class="sellerText">
-                        <button id="seller-button">I am a Seller</button>
-=======
-<%--            <div class="container">--%>
-<%--                <div class="row">--%>
-<%--                    <button>--%>
-<%--                        <a href="/register">Register</a>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
             <div class="container justify-center">
                 <div class="row justify-space-between">
                     <div class="column shrink">
                         <div class="sellerText">
                             <button class="btns" id="seller-button">I am a Seller</button>
                         </div>
->>>>>>> main
                     </div>
                     <div class="column shrink">
                         <div class="buyerText">
@@ -74,7 +52,7 @@
             </div>
             <div class="container gap-20">
                 <div class="row justify-center">
-                    <button class="btns">
+                    <button id="register-button">
                         <a href="/register">Register</a>
                     </button>
                 </div>
