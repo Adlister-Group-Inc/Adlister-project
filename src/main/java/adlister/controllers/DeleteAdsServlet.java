@@ -18,21 +18,22 @@ public class DeleteAdsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // when user presses delete button delete ad by id
-        System.out.println("Inside deleteAdsServlet doPut");
         try {
             HttpSession session = req.getSession();
             User currentUser = (User) session.getAttribute("user");
-            System.out.println(currentUser.getUsername());
-            // Parse the ad id, new title and new description from the request body
             int adId = Integer.parseInt(req.getParameter("id"));
-            System.out.println(adId);
-            // Get the ad to be updated
+            Long longAdId = Long.parseLong(req.getParameter("id"));
             Ads ads = DaoFactory.getAdsDao();
             Ad adToBeDeleted = ads.findById(adId);
 
             if (adToBeDeleted.getUserId() == currentUser.getId()) {
-                System.out.println("ads user and current user are the same");
+                DaoFactory.getAdCategoriesDao().deleteAdsFromCategory(longAdId);
+                resp.setStatus(HttpServletResponse.SC_OK);
+            } else {
+                resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You do not have permission to delete this ad.");
+            }
+
+            if (adToBeDeleted.getUserId() == currentUser.getId()) {
                 DaoFactory.getAdsDao().deleteAd(adId);
                 resp.setStatus(HttpServletResponse.SC_OK);
                 resp.sendRedirect("/profile");

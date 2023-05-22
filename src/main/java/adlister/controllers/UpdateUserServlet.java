@@ -3,7 +3,6 @@ package adlister.controllers;
 import adlister.dao.DaoFactory;
 import adlister.models.User;
 import adlister.util.Password;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +48,6 @@ public class UpdateUserServlet extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("user: " + updatedUser.getUsername() + " updated.");
             req.getSession().setAttribute("user", updatedUser );
             resp.sendRedirect("/profile");
         } else {
@@ -68,7 +66,6 @@ public class UpdateUserServlet extends HttpServlet {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("user: " + updatedUser.getUsername() + " updated.");
             req.getSession().setAttribute("user", updatedUser );
             resp.sendRedirect("/profile");
         }

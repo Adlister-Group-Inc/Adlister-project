@@ -3,6 +3,7 @@ package adlister.controllers;
 import adlister.dao.DaoFactory;
 import adlister.models.Ad;
 import adlister.models.User;
+import adlister.util.InputValidation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "adlister.controllers.CreateAdServlet", urlPatterns = "/ads/create")
+@WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getAttribute("titleError");
+        request.getAttribute("descriptionError");
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             // add a return statement to exit out of the entire method.
@@ -24,14 +27,41 @@ public class CreateAdServlet extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
+
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+
+        boolean titleError = InputValidation.adTitleError(title);
+        boolean descriptionError = InputValidation.adDescError(description);
+
+        boolean inputHasErrors = titleError
+                || descriptionError;
+
+        if (inputHasErrors){
+            request.setAttribute("titleError", titleError);
+            request.setAttribute("descriptionError", descriptionError);
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request,response);
+            return;
+        }
+
+
         Ad ad = new Ad(
             loggedInUser.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        Long adId = DaoFactory.getAdsDao().insert(ad);
+
+        String[] categories = request.getParameterValues("category");
+
+        if (categories != null) {
+            for (String categoryIdStr : categories) {
+                Long categoryId = Long.parseLong(categoryIdStr);
+                DaoFactory.getAdCategoriesDao().linkAdToCategory(adId, categoryId);
+            }
+        }
         response.sendRedirect("/ads");
     }
 }

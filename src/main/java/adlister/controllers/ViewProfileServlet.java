@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "adlister.controllers.ViewProfileServlet", urlPatterns = "/profile")
+@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
@@ -32,21 +32,15 @@ public class ViewProfileServlet extends HttpServlet {
         try {
             HttpSession session = req.getSession();
             User currentUser = (User) session.getAttribute("user");
-            System.out.println(currentUser.getUsername());
             // Parse the ad id, new title and new description from the request body
             int adId = Integer.parseInt(req.getParameter("id"));
-            System.out.println(adId);
             String newTitle = req.getParameter("title");
-            System.out.println(newTitle);
             String newDescription = req.getParameter("description");
-            System.out.println(newDescription);
-            // Get the ad to be updated
             Ads ads = DaoFactory.getAdsDao();
             Ad adToBeUpdated = ads.findById(adId);
 
 
             if (adToBeUpdated.getUserId() == currentUser.getId()) {
-                System.out.println("ads user and current user are the same");
                 DaoFactory.getAdsDao().updateAd(adId, newTitle, newDescription);
                 resp.setStatus(HttpServletResponse.SC_OK);
                 resp.sendRedirect("/profile");
