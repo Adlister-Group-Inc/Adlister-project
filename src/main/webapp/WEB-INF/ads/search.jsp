@@ -23,8 +23,10 @@
 
                 <c:if test="${results != null}">
                     <c:forEach var="ad" items="${results}">
-                        <h2><a href="/ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
-                        <p>${ad.description}</p>
+                        <div class="ad-card">
+                            <h2><a href="/ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
+                            <p>${ad.description}</p>
+                        </div>
                     </c:forEach>
                 </c:if>
 

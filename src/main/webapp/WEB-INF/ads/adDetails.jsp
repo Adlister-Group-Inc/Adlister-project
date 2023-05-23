@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="column centered-title">
+        <div class="column centered-title ad-card">
           <h2>${ad.title}</h2>
           <p>${ad.description}</p>
         </div>
