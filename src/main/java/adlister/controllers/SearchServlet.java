@@ -12,11 +12,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/search")
+@WebServlet("/ads/search")
 public class SearchServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/search.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req,resp);
     }
 
     @Override
@@ -24,6 +25,6 @@ public class SearchServlet extends HttpServlet {
         String search = req.getParameter("search");
         List<Ad> results = DaoFactory.getAdsDao().searchAds(search);
         req.setAttribute("results", results);
-        req.getRequestDispatcher("/WEB-INF/search.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req,resp);
     }
 }

@@ -13,22 +13,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
+@WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/user/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/user/login");
             return;
         }
 
         request.setAttribute("ads",DaoFactory.getAdsDao().findByUserId(user.getId()) );
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/user/profile.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Inside profileServlet doPut");
         try {
             HttpSession session = req.getSession();
             User currentUser = (User) session.getAttribute("user");
@@ -43,7 +42,7 @@ public class ViewProfileServlet extends HttpServlet {
             if (adToBeUpdated.getUserId() == currentUser.getId()) {
                 DaoFactory.getAdsDao().updateAd(adId, newTitle, newDescription);
                 resp.setStatus(HttpServletResponse.SC_OK);
-                resp.sendRedirect("/profile");
+                resp.sendRedirect("/user/profile");
             } else {
                 resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You do not have permission to edit this ad.");
             }

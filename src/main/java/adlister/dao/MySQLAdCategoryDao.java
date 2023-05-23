@@ -71,7 +71,6 @@ public class MySQLAdCategoryDao implements AdsCategory {
 
     @Override
     public List<Ad> getAllAdsByCategory(Long categoryId) {
-        System.out.println("inside getAdsByCategory");
         List<Ad> ads = new ArrayList<>();
         String sql = "SELECT * FROM ads WHERE id IN ( SELECT ad_id FROM ads_category WHERE category_id = ?)";
 
@@ -95,7 +94,6 @@ public class MySQLAdCategoryDao implements AdsCategory {
 
     @Override
     public List<Long> getAdsByCategory(Long categoryId) {
-        System.out.println("inside getAdsByCategory");
         List<Long> ads = new ArrayList<>();
         String sql = "SELECT ad_id FROM ads_category WHERE category_id = ?";
 
@@ -103,11 +101,7 @@ public class MySQLAdCategoryDao implements AdsCategory {
             stmt.setLong(1, categoryId);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                System.out.println(rs.getLong("ad_id"));
                 ads.add(rs.getLong("ad_id"));
-            }
-            for (Long ad: ads){
-                System.out.println("ad Id from getAdsByCategory method :" + ad);
             }
             return ads;
         } catch (SQLException e) {

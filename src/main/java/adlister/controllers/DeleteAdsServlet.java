@@ -36,10 +36,11 @@ public class DeleteAdsServlet extends HttpServlet {
             if (adToBeDeleted.getUserId() == currentUser.getId()) {
                 DaoFactory.getAdsDao().deleteAd(adId);
                 resp.setStatus(HttpServletResponse.SC_OK);
-                resp.sendRedirect("/profile");
+                resp.sendRedirect("/user/profile");
             } else {
                 resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You do not have permission to delete this ad.");
             }
+
         } catch (NumberFormatException e) {
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid ad id.");
         } catch (NullPointerException e) {

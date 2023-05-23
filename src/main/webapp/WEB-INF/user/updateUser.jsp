@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
+    <jsp:include page="../partials/head.jsp">
         <jsp:param name="title" value="Update User" />
     </jsp:include>
 </head>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="column justify-center list-ads centered-update-user-form">
-            <form action="/updateUser" method="post">
+            <form action="/user/updateUser" method="post">
                 <label for="updateUsername">Change Username:</label>
                 <input type="text" name="updateUsername" id="updateUsername" value="${user.username}">
                 <label for="updateEmail">Change Email:</label>
