@@ -20,7 +20,7 @@
         <c:if test="${not empty category}">
           <h1>You are searching for ${category}</h1>
         </c:if>
-
+        <br>
         <c:if test="${results != null}">
           <c:forEach var="ad" items="${results}">
             <h2><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>

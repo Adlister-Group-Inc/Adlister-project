@@ -11,18 +11,15 @@
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
-
+    <br>
+    <div class="row list-ads">
     <c:forEach var="ad" items="${ads}">
-<<<<<<< HEAD
         <div class="column">
-            <h2>${ad.title}</h2>
-=======
-        <div>
             <h2><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
->>>>>>> main
             <p>${ad.description}</p>
         </div>
     </c:forEach>
+    </div>
 </div>
 
 </body>

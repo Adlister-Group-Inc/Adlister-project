@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container full-width">
-        <div class="row">
+        <div class="row justify-center">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="column shrink adLister-logo">
                 <a class="navbar-brand" href="http://localhost:8080/">Adlister</a>
@@ -13,7 +13,7 @@
             </div>
             <c:if test="${empty user}">
                 <div class="column shrink justify-right">
-                    <i class="fa-solid fa-user"></i><a class="login-logout" href="/login">Login</a>
+                    <div class="fa-solid fa-user shrink"></div><div><a class="login-logout" href="/login">Login</a></div>
                 </div>
             </c:if>
             <c:if test="${not empty user}">
@@ -27,6 +27,7 @@
             <div class="dropdown">
                 <button class="dropbtn">Categories</button>
                 <div class="dropdown-content">
+                        <a href="/ads">View All Ads</a><br>
                         <a href="/category?category=community">Community</a><br>
                         <a href="/category?category=services">Services</a><br>
                         <a href="/category?category=housing">Housing</a><br>

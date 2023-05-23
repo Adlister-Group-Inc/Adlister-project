@@ -12,6 +12,7 @@
 <div class="container">
     <h1>Welcome, ${user.username}!</h1>
     <button><a href="/ads/create">Create Ad!</a></button>
+    <a href="/updateUser">Edit profile</a>
 </div>
 <div>
 <div class="page-wrapper">
@@ -43,6 +44,7 @@
             <input type="submit" class="btn btn-block btn-primary submitDelete">
         </form>
     </c:forEach>
+
 </div>
 </div>
 <script src="/js/profile.js"></script>
