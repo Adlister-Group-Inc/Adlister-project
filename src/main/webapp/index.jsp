@@ -24,8 +24,8 @@
                         <span style="--i:8">r</span>
                     </div>
                 </div>
-                <div class="row grow justify-center">
-                    <h3>Preowned is the NEW NEW this year</h3>
+                <div class="row subheader grow justify-center">
+                        <h2 class="text-shadow"> <- Preowned is the NEW NEW this year -> </h2>
                 </div>
             </div>
             <div class="container justify-center">
