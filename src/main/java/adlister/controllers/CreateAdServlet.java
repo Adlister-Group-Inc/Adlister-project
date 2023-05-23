@@ -19,7 +19,6 @@ public class CreateAdServlet extends HttpServlet {
         request.getAttribute("categoryError");
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
-            // add a return statement to exit out of the entire method.
             return;
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);

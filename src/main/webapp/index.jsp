@@ -53,7 +53,7 @@
             <div class="container gap-20">
                 <div class="row justify-center">
                     <button id="register-button">
-                        <a href="/register">Register</a>
+                        <a href="/user/register">Register</a>
                     </button>
                 </div>
             </div>
