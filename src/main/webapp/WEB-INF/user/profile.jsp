@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Welcome, ${user.username}!</h1>
         <button><a href="/ads/create">Create Ad!</a></button>
-        <a href="/user/updateUser">Edit profile</a>
+        <button><a href="/user/updateUser">Edit profile</a></button>
         <div>
             <h2>Your ads:</h2>
             <br>

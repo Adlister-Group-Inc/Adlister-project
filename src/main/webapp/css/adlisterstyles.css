@@ -76,6 +76,8 @@ div.row.dev{
 img.dev1, .dev2, .dev3, .dev4{
     height: 195px;
     width: 165px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
 }
 
 .sellerText{
@@ -122,6 +124,8 @@ img.dev1, .dev2, .dev3, .dev4{
 }
 
 .btns{
+
+    padding-top: 10px;
     background-color: var(--textColor);
     color:white;
 }
@@ -189,4 +193,8 @@ img.dev1, .dev2, .dev3, .dev4{
 }
 .nav-bar {
     padding-top: 10px;
+}
+
+.row.justify-center {
+    padding: 10px;
 }
