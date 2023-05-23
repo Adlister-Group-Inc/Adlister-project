@@ -12,18 +12,18 @@
 <div class="container">
     <h1>Welcome, ${user.username}!</h1>
     <button><a href="/ads/create">Create Ad!</a></button>
-    <a href="/updateUser">Edit profile</a>
+    <a href="/user/updateUser">Edit profile</a>
 </div>
 <div>
 <div class="page-wrapper">
     <c:forEach var="ad" items="${ads}">
         <div class="ad-card" data-ad-id="${ad.id}">
-            <h2 class="ad-title"><a href="ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
+            <h2 class="ad-title"><a href="/ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
             <p class="ad-description">${ad.description}</p>
             <button class="edit">Edit</button>
             <button class="delete">Delete</button>
         </div>
-        <form action="/profile" method="post" class="edit-form" style="display:none">
+        <form action="/user/profile" method="post" class="edit-form" style="display:none">
             <input name="id" value="${ad.id}" style="display: none">
             <div class="form-group">
                 <label for="title">Title</label>

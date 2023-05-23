@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
+@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/user/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("usernameError",request.getParameter("usernameError"));
         request.setAttribute("passwordError",request.getParameter("passwordError"));
         request.setAttribute("emailError",request.getParameter("emailError"));
 
-        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/user/register.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -44,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("usernameError", usernameError);
             request.setAttribute("passwordError", passwordError);
             request.setAttribute("emailError", emailError);
-            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/user/register.jsp").forward(request,response);
             return;
         }
 
@@ -56,6 +56,6 @@ public class RegisterServlet extends HttpServlet {
 
         user.setPassword(hash);
         DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+        response.sendRedirect("/user/login");
     }
 }

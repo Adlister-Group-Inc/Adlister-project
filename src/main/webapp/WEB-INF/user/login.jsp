@@ -14,7 +14,7 @@
             <p style="color: red">Username or password incorrect.</p>
         </c:if>
 
-        <form action="/login" method="POST">
+        <form action="/user/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text" value="${username}">

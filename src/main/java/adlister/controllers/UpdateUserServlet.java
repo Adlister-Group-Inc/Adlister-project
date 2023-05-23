@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/updateUser")
+@WebServlet("/user/updateUser")
 public class UpdateUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");
         if (user != null){
-            req.getRequestDispatcher("/WEB-INF/updateUser.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/user/updateUser.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/user/login");
         }
     }
 
@@ -39,7 +39,7 @@ public class UpdateUserServlet extends HttpServlet {
             inputHasErrors = newUsername.isEmpty()
                     || newEmail.isEmpty();
             if (inputHasErrors) {
-                resp.sendRedirect("/updateUser");
+                resp.sendRedirect("/user/updateUser");
                 return;
             }
             User updatedUser = null;
@@ -49,14 +49,14 @@ public class UpdateUserServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
             req.getSession().setAttribute("user", updatedUser );
-            resp.sendRedirect("/profile");
+            resp.sendRedirect("/user/profile");
         } else {
             inputHasErrors = newUsername.isEmpty()
                     || newEmail.isEmpty()
                     || newPassword.isEmpty()
                     || (! newPassword.equals(newPasswordConfirm));
             if (inputHasErrors) {
-                resp.sendRedirect("/updateUser");
+                resp.sendRedirect("/user/updateUser");
                 return;
             }
             newPassword = Password.hash(newPassword);
@@ -67,7 +67,7 @@ public class UpdateUserServlet extends HttpServlet {
                 throw new RuntimeException(e);
             }
             req.getSession().setAttribute("user", updatedUser );
-            resp.sendRedirect("/profile");
+            resp.sendRedirect("/user/profile");
         }
     }
 }

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/category")
+@WebServlet("/ads/category")
 public class CategorySearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,10 +20,7 @@ public class CategorySearchServlet extends HttpServlet {
         req.setAttribute("category", search);
         Long catId = DaoFactory.getCategoriesDao().searchCategory(search);
         List<Ad> results = DaoFactory.getAdCategoriesDao().getAllAdsByCategory(catId);
-        for (Ad ad: results){
-            System.out.println(ad.getId());
-        }
         req.setAttribute("results", results);
-        req.getRequestDispatcher("/WEB-INF/category.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/ads/category.jsp").forward(req,resp);
     }
 }
