@@ -14,7 +14,7 @@
     <br>
     <div class="row list-ads">
     <c:forEach var="ad" items="${ads}">
-        <div class="column">
+        <div class="column ad-card">
             <h2><a href="/ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
             <p>${ad.description}</p>
         </div>
