@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container full-width nav-bar">
     <div class="row justify-center centered-navbar">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="column shrink adLister-logo">
             <a class="navbar-brand" href="http://localhost:8080/">Adlister</a>
         </div>

@@ -98,10 +98,8 @@ public class MySQLAdsDao implements Ads {
             int updatedRows = stmt.executeUpdate();
 
             if (updatedRows > 0) {
-                // If the update was successful, return the updated Ad
                 return findById(id);
             } else {
-                // If no rows were updated, the Ad with the provided id doesn't exist
                 return null;
             }
         } catch (SQLException ex) {
@@ -109,16 +107,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-//    @Override
-//    public void deleteAd(int adId) {
-//        String query = "DELETE FROM ads WHERE id = ?";
-//        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-//            stmt.setInt(1, adId);
-//            stmt.executeUpdate();
-//        } catch (SQLException ex) {
-//            throw new RuntimeException("Error while deleting ad with id: " + adId, ex);
-//        }
-//    }
 
     public Ad deleteAd(int adId) {
         String query = "DELETE FROM ads WHERE id = ?";

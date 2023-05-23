@@ -73,10 +73,8 @@ public class MySQLUsersDao implements Users {
 
             int updatedRows = stmt.executeUpdate();
             if (updatedRows > 0) {
-                // If the update was successful, return the updated User
                 return findByUsername(newUsername);
             } else {
-                // If no rows were updated, the User with the provided id doesn't exist
                 return null;
             }
         } catch (SQLException ex) {
@@ -94,10 +92,8 @@ public class MySQLUsersDao implements Users {
 
             int updatedRows = stmt.executeUpdate();
             if (updatedRows > 0) {
-                // If the update was successful, return the updated User
                 return findByUsername(newUsername);
             } else {
-                // If no rows were updated, the User with the provided id doesn't exist
                 return null;
             }
         } catch (SQLException ex) {

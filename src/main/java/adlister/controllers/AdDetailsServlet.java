@@ -19,7 +19,6 @@ public class AdDetailsServlet extends HttpServlet {
         try {
             parsedAdId = Long.parseLong(adId);
         } catch (NumberFormatException e) {
-            System.out.println("Problem when parsing 'id' to Long,:" + e);
         }
 
         Ad adById = DaoFactory.getAdsDao().searchAdsById(parsedAdId);
