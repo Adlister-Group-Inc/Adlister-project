@@ -17,7 +17,7 @@
             <h2>Your ads:</h2>
             <br>
         <c:forEach var="ad" items="${ads}">
-            <div class="ad-card-category" data-ad-id="${ad.id}">
+            <div class="ad-card" data-ad-id="${ad.id}">
                 <h2 class="ad-title"><a href="/ads/adDetails?id=${ad.id}">${ad.title}</a></h2>
                 <p class="ad-description">${ad.description}</p>
                 <button class="edit">Edit</button>
