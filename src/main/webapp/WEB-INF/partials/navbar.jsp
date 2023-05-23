@@ -16,40 +16,40 @@
                     </div>
                 </search>
             </div>
+        </div>
 
-            <c:if test="${empty user}">
-                <div class="column justify-center align-center">
-                    <div class="row shrink justify-center centered-navbar">
-                        <i class=" column shrink fa-solid fa-light fa-user"></i>
-                        <a class="column login-logout shrink" href="/user/login">Login</a>
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${not empty user}">
-                <div class="column shrink justify-center">
-                    <a class="login-logout" href="/user/profile">Profile</a>
-                </div>
-                <div class="column shrink justify-center">
-                    <i class="fa-light fa-user"></i><a class="login-logout" href="/logout">Logout</a>
-                </div>
-            </c:if>
-            <div class="dropdown">
-                <button class="dropbtn">Categories</button>
-                <div class="dropdown-content">
-                        <a href="/ads">View All Ads</a><br>
-                        <a href="/ads/category?category=community">Community</a><br>
-                        <a href="/ads/category?category=services">Services</a><br>
-                        <a href="/ads/category?category=housing">Housing</a><br>
-                        <a href="/ads/category?category=for_sale">For Sale</a><br>
-                        <a href="/ads/category?category=jobs">Jobs</a><br>
-                        <a href="/ads/category?category=gigs">Gigs</a><br>
-                        <a href="/ads/category?category=resumes">Resumes</a><br>
-                        <a href="/ads/category?category=personals">Personals</a><br>
-                        <a href="/ads/category?category=discussion_forums">Discussion Forums</a><br>
-                        <a href="/ads/category?category=events">Events</a><br>
-
+        <c:if test="${empty user}">
+            <div class="column justify-center align-center">
+                <div class="row shrink justify-center centered-navbar">
+                    <i class=" column shrink fa-solid fa-light fa-user"></i>
+                    <a class="column login-logout shrink" href="/user/login">Login</a>
                 </div>
             </div>
         </c:if>
-       
+        <c:if test="${not empty user}">
+            <div class="column shrink justify-center">
+                <a class="login-logout" href="/user/profile">Profile</a>
+            </div>
+            <div class="column shrink justify-center">
+                <i class="fa-light fa-user"></i><a class="login-logout" href="/logout">Logout</a>
+            </div>
+        </c:if>
+        <div class="dropdown">
+            <button class="dropbtn">Categories</button>
+            <div class="dropdown-content">
+                    <a href="/ads">View All Ads</a><br>
+                    <a href="/ads/category?category=community">Community</a><br>
+                    <a href="/ads/category?category=services">Services</a><br>
+                    <a href="/ads/category?category=housing">Housing</a><br>
+                    <a href="/ads/category?category=for_sale">For Sale</a><br>
+                    <a href="/ads/category?category=jobs">Jobs</a><br>
+                    <a href="/ads/category?category=gigs">Gigs</a><br>
+                    <a href="/ads/category?category=resumes">Resumes</a><br>
+                    <a href="/ads/category?category=personals">Personals</a><br>
+                    <a href="/ads/category?category=discussion_forums">Discussion Forums</a><br>
+                    <a href="/ads/category?category=events">Events</a><br>
+            </div>
+        </div>
+    </div>
 
+</div>
