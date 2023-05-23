@@ -18,9 +18,11 @@
             </div>
         </div>
         <c:if test="${empty user}">
-            <div class="column shrink justify-right">
-                <div class="fa-solid fa-user shrink"></div>
-                <div><a class="login-logout" href="/user/login">Login</a></div>
+            <div class="column justify-center align-center">
+                <div class="row shrink justify-center centered-navbar">
+                    <i class=" column shrink fa-solid fa-light fa-user"></i>
+                    <a class="column login-logout shrink" href="/user/login">Login</a>
+                </div>
             </div>
         </c:if>
         <c:if test="${not empty user}">
